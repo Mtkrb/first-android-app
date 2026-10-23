@@ -30,7 +30,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-// ---------- Модель данных ----------
+
 data class User(
     val name: String,
     val profession: String,
@@ -45,7 +45,7 @@ val users = listOf(
     User("Бекзат Исаков", "Backend-разработчик", 8, 33, 3)
 )
 
-// ---------- Activity ----------
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,7 +57,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-// ---------- Экран со списком карточек (доп. задание) ----------
+
 @Composable
 fun UsersScreen() {
     Scaffold { innerPadding ->
@@ -75,7 +75,7 @@ fun UsersScreen() {
     }
 }
 
-// ---------- Карточка профиля ----------
+
 @Composable
 fun ProfileCard(user: User) {
     Column {
@@ -87,10 +87,10 @@ fun ProfileCard(user: User) {
                 .background(Color(0xFFEEF2FF))
                 .padding(16.dp)
         ) {
-            // Внутри Box — Column, чтобы три Row шли друг под другом, а не накладывались
+
             Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
 
-                // 1) Аватар + имя и профессия
+
                 Row(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(16.dp)
@@ -126,7 +126,7 @@ fun ProfileCard(user: User) {
                     }
                 }
 
-                // 2) Статистика: три блока одинаковой ширины
+
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -139,7 +139,7 @@ fun ProfileCard(user: User) {
                     StatItem(Modifier.weight(1f), user.years.toString(), "лет опыта")
                 }
 
-                // 3) Две кнопки
+
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(12.dp),
@@ -163,7 +163,7 @@ fun ProfileCard(user: User) {
     }
 }
 
-// ---------- Один блок статистики ----------
+
 @Composable
 fun StatItem(modifier: Modifier, value: String, label: String) {
     Column(
@@ -184,7 +184,7 @@ fun StatItem(modifier: Modifier, value: String, label: String) {
     }
 }
 
-// ---------- Превью ----------
+
 @Preview(showBackground = true)
 @Composable
 fun UsersScreenPreview() {
